@@ -1,0 +1,10 @@
+.gallery{
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 10px;
+    border: 2px solid black;
+    width: 100%;
+    height: calc(100vh - 20px);
+  }
