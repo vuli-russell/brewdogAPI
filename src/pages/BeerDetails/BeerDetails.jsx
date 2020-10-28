@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./BeerDetails.module.scss";
+import Stat from "../../components/Stat/Stat";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const BeerDetails = (props) => {
 
@@ -18,10 +20,18 @@ const BeerDetails = (props) => {
     getData()
   }, [])
 
+
+  const toggleHeading = (target) => {
+    console.log(target)
+    target.style.height = (target.clientHeight ? "0px" : `${target.scrollHeight}px`);
+  }
+
   let detailsJSX = <h1> Loading </h1>;
 
   if (beer) {
     const { name, tagline, first_brewed, description, image_url, abv, ibu, target_fg, target_og, ebc, srm, ph, attenuation_level } = beer;
+
+
 
     detailsJSX = (
       <main className={styles.flexContainer}>
@@ -31,15 +41,9 @@ const BeerDetails = (props) => {
           <h2>{tagline}</h2>
           <h3>First Brewed: {first_brewed}</h3>
           <p>{description}</p>
-          <div className={styles.Stats}>
-            <h3>Stats</h3>
-            <p>ABV: {abv}%</p>
-            <p>IBU {ibu}</p>
-            <p>FG: {target_fg}</p>
-            <p>OG: {target_og}</p>
-            <p>EBC: {ebc}</p>
-            <p>SRM: {srm}</p>
-            <p>PH: {ph}</p>
+          <h3 onClick={(e)=>toggleHeading(e.target.nextElementSibling)}>Stats</h3>
+          <div id="stats" className={styles.statsContainer}>
+            <Stat stats={{abv:abv,ibu:ibu,target_fg:target_fg,target_og:target_og,ebc:ebc,srm:srm,ph:ph}}/>
           </div>
         </div>
       </main>

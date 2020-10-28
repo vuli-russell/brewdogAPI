@@ -4,6 +4,12 @@ import {Router} from "@reach/router"
 import DashBoard from './pages/DashBoard/DashBoard';
 import BeerDetails from "./pages/BeerDetails";
 
+//font awesome
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faBeer, faChevronDown } from '@fortawesome/free-solid-svg-icons'
+
+library.add(faBeer, faChevronDown);
+
 
 const App = () => {
 

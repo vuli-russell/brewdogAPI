@@ -1,6 +1,6 @@
 .flexContainer{
-    color: black;
-    background-color:red;
+    color: white;
+    background-color: black;
     display: flex;
 
     img {
@@ -11,8 +11,10 @@
     }
 
     .modalInfo {
-        .stats{
-            
+        .statsContainer{
+            height: 0px;
+            overflow: hidden;   
+            transition: height 0.2s ease; 
         }
     }
 }
