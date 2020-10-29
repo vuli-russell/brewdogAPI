@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./BeerDetails.module.scss";
 import Stat from "../../components/Stat/Stat";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const BeerDetails = (props) => {
 
@@ -16,9 +16,7 @@ const BeerDetails = (props) => {
       .catch(error => console.log(error))
   }
 
-  useEffect(() => {
-    getData()
-  }, [])
+  useEffect(getData, [])
 
 
   const toggleHeading = (target) => {
@@ -29,7 +27,7 @@ const BeerDetails = (props) => {
   let detailsJSX = <h1> Loading </h1>;
 
   if (beer) {
-    const { name, tagline, first_brewed, description, image_url, abv, ibu, target_fg, target_og, ebc, srm, ph, attenuation_level } = beer;
+    const { name, tagline, first_brewed, description, image_url, abv, ibu, target_fg, target_og, ebc, srm, ph} = beer;
 
 
 
