@@ -32,7 +32,7 @@ const DashBoard = () => {
 
   return (
     <div className={styles.DashBoard}>
-      <h1>IVE BEEN BUILT AUTOMATICALLY</h1>
+      <h1>IVE BEEN BUILT AUTOMATICALLY FOR REAL THIS TIME</h1>
       <SearchBar searchInfo={searchInfo} setSearchInfo={setSearchInfo} />
       <Gallery data={data} />
     </div>
