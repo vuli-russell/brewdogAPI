@@ -5,7 +5,7 @@ export const signIn = (acc) => {firebase.auth().signInWithPopup(provider[acc]).c
 
 export const signOut = () => {firebase.auth().signOut().catch(e =>{console.log(e)})}
 
-export const watchUser = (setUser) => {
+export const watchUser = (setUser) => 
 firebase.auth().onAuthStateChanged(user => {
     if(user){
     setUser(user)
@@ -13,4 +13,3 @@ firebase.auth().onAuthStateChanged(user => {
     setUser(null)
     }
 })
-}

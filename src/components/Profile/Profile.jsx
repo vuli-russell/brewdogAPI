@@ -1,20 +1,20 @@
 import React from "react";
 import styles from "./Profile.module.scss";
-import { getFavourites } from "../../services/userServices";
+import { setFav, removeFav, subscribeToFavourites } from "../../services/userServices";
 import { useState } from "react";
 import { useEffect } from "react";
 import BeerDetails from "../../pages/BeerDetails";
+import Card from "../Gallery/Card"
 
 const Profile = (props) => {
 
   const {user} = props;
-  const [ favouriteBeers, setFavouriteBeers ] = useState(null)
-  const [ favouriteBeersData, setFavouriteBeersData ] = useState(null)
+  const [ favouriteBeers, setFavouriteBeers ] = useState([])
   
   useEffect(()=>{
     if(user){
-      getFavourites(user)
-      .then(r => setFavouriteBeers(r))
+      let unsubscribe = subscribeToFavourites(user,setFavouriteBeers);
+      return () => unsubscribe();
     }
   },[user])
 
@@ -25,10 +25,17 @@ const Profile = (props) => {
       <h1>{user.displayName}</h1>
       <h2>{user.email}</h2>
       <img src={user.photoURL} alt=""/>
-      {favouriteBeers ? 
-        favouriteBeers.map(beer => <h1>{beer}</h1>)
+      {favouriteBeers.length ? 
+        favouriteBeers.map(beer =>    
+          <Card 
+            isFav={true}
+            key={beer.id} 
+            addToFav={() => setFav(user,beer)}
+            removeFromFav={() => removeFav(user,beer)} 
+            beer={beer}
+          />)
         :
-        <h1>Loading Favourite Beers</h1>
+        <h1>No Favorite Beers Found</h1>
       }
     </>
     }

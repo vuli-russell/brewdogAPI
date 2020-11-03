@@ -19,7 +19,10 @@ const App = () => {
 
   //signin Stuff
   const [user, setUser] = useState(null)
-  useEffect(() => watchUser(setUser),[])
+  useEffect(() => {
+    const unsubscribe = watchUser(setUser);
+    return () => unsubscribe();
+  },[])
 
   return(
   <div className={styles.App}>

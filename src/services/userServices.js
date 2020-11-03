@@ -6,13 +6,13 @@ export const setFav= (user,beer) => {
         .then(r => r.data())
         .then(data => {
             if(data){
-                if(!data.favourites.includes(beer.id)){
-                    firestore.collection("users").doc(user.uid).update({favourites:[...data.favourites, beer.id]})
+                if(!data.favourites.some(fav => fav.id === beer.id)){
+                    firestore.collection("users").doc(user.uid).update({favourites:[beer, ...data.favourites]})
                 }else{
                     console.log("Already in Favourites")
                 }
             } else {
-                firestore.collection("users").doc(user.uid).set({favourites:[beer.id]})
+                firestore.collection("users").doc(user.uid).set({favourites:[beer]})
             }
         })
         .catch(e => console.log(e));
@@ -25,8 +25,8 @@ export const removeFav = (user,beer) => {
     firestore.collection("users").doc(user.uid).get()
     .then(r => r.data().favourites)
     .then(data => {
-        if(data.indexOf(beer.id) >=0){
-        data.splice(data.indexOf(beer.id),1);
+        if(data.findIndex(fav => fav.id===beer.id) >=0){
+        data.splice(data.findIndex(fav => fav.id===beer.id),1);
         firestore.collection("users").doc(user.uid).update({favourites:data});
         }
     })
@@ -35,6 +35,14 @@ export const removeFav = (user,beer) => {
 export const getFavourites = (user) => {
     if(user){
         return firestore.collection("users").doc(user.uid).get().then(r => r.data().favourites)
+    }else{
+        console.log("Error - No User Logged In")
+    }
+}
+
+export const subscribeToFavourites = (user,setFunction) => {
+    if(user){
+        return firestore.collection("users").doc(user.uid).onSnapshot(r => setFunction(r.data().favourites))
     }else{
         console.log("Error - No User Logged In")
     }
