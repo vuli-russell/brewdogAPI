@@ -6,7 +6,7 @@ import BeerDetails from "./pages/BeerDetails";
 import Header from "./components/Header"
 import PrivateRoutes from "./components/PrivateRoutes"
 import Profile from "./components/Profile"
-import {signIn, signOut, watchUser} from "./services/loginServices";
+import { UserProvider } from "./context/userContext";
 
 //font awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
@@ -17,23 +17,18 @@ library.add(faBeer, faChevronDown);
 
 const App = () => {
 
-  //signin Stuff
-  const [user, setUser] = useState(null)
-  useEffect(() => {
-    const unsubscribe = watchUser(setUser);
-    return () => unsubscribe();
-  },[])
-
   return(
   <div className={styles.App}>
-    <Header user={user} signIn={signIn} signOut={signOut}/>
-    <Router className={styles.router} primary={false}>
-      <DashBoard path="/" user={user}/>
-      <BeerDetails path="/beer/:beerID"/>
-      <PrivateRoutes path="/">
-        <Profile path="profile" user={user}/>
-      </PrivateRoutes>
-    </Router>
+    <UserProvider>
+      <Header />
+      <Router className={styles.router} primary={false}>
+        <DashBoard path="/" />
+        <BeerDetails path="/beer/:beerID" />
+        <PrivateRoutes path="/">
+          <Profile path="profile" />
+        </PrivateRoutes>
+      </Router>
+    </UserProvider>
   </div>
   )
 }

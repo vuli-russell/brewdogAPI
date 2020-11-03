@@ -1,13 +1,14 @@
-import React from "react";
+import React, {useContext} from "react";
 // import styles from "./Profile.module.scss";
 import { setFav, removeFav, subscribeToFavourites } from "../../services/userServices";
 import { useState } from "react";
 import { useEffect } from "react";
 import Card from "../Gallery/Card"
+import { UserContext } from "../../context/userContext";
 
 const Profile = (props) => {
 
-  const {user} = props;
+  const {user} = useContext(UserContext);
   const [ favouriteBeers, setFavouriteBeers ] = useState([])
   
   useEffect(()=>{

@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useContext} from "react";
 import styles from "./Header.module.scss";
 import { Link } from "@reach/router";
+import { UserContext } from "../../context/userContext";
 
-const Header = (props) => {
+const Header = () => {
 
-  const {signIn, signOut, user} = props
+  const {signIn, signOut, user} = useContext(UserContext);
 
   return (
     <header className={styles.header}>

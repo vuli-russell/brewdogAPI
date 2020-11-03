@@ -1,11 +1,12 @@
-import React , {useState,useEffect}from 'react';
+import React , {useState,useEffect, useContext}from 'react';
 import styles from "./DashBoard.module.scss";
 import SearchBar from "../../components/SearchBar";
 import Gallery from "../../components/Gallery";
+import { UserContext } from '../../context/userContext';
 
-const DashBoard = (props) => {
+const DashBoard = () => {
 
-  const {user} = props;
+  const {user} = useContext(UserContext)
 
   const [searchInfo, setSearchInfo] = useState({});
   const [data, setData] = useState(null)
