@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-import styles from "./PrivateRoutes.module.scss";
+// import styles from "./PrivateRoutes.module.scss";
 import firebase from "../../firebase";
-import { navigate } from "@reach/router";
 
 const PrivateRoutes = (props) => {
 

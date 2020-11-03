@@ -1,9 +1,8 @@
 import React from "react";
-import styles from "./Profile.module.scss";
+// import styles from "./Profile.module.scss";
 import { setFav, removeFav, subscribeToFavourites } from "../../services/userServices";
 import { useState } from "react";
 import { useEffect } from "react";
-import BeerDetails from "../../pages/BeerDetails";
 import Card from "../Gallery/Card"
 
 const Profile = (props) => {
