@@ -1,24 +1,23 @@
 import React from "react";
 import styles from "./Card.module.scss";
-import { useState } from "react";
 import { Link } from "@reach/router"
+
 
 const Card = (props) => {
 
-  const [detailsShown, setDetailsShown] = useState(false)
-
-  const {id,name,tagline,image_url} = props.beer
-
-  const onClick = () => {
-    setDetailsShown(!detailsShown)
-  }
+  const { addToFav, removeFromFav, beer, isFav } = props
+  const { id, name, tagline, image_url } = beer
 
   return (
-    <article onClick={onClick} className={styles.Card}>
+    <article className={styles.Card} style={isFav ? { backgroundColor: "green" } : {}}>
+      {isFav ?
+        <button onClick={removeFromFav}>remove from fav</button> :
+        <button onClick={addToFav}>add to fav</button>
+      }
       <h1>{name}</h1>
       <p>{tagline}</p>
-      <img src={image_url} alt={name}/> 
-      <Link to={`/beer_${id}`}>More Info</Link> 
+      <img src={image_url} alt={name} />
+      <Link to={`/beer/beer_${id}`}>More Info</Link>
     </article>
   );
 };

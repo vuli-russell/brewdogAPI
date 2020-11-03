@@ -3,7 +3,8 @@
     flex-direction: column;
     margin: 10px;
     border: 2px solid black;
-    height: calc(100vh - 20px);
+    // overflow-y: auto;
+    // overflow-x: hidden;
 
     .input {
         margin: 5px 10px;
