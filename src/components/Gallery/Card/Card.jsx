@@ -1,12 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import ReactDOM from "react-dom";
 import styles from "./Card.module.scss";
-import { Link } from "@reach/router"
-
+import DetailsOverlay from "../../DetailsOverlay";
 
 const Card = (props) => {
 
+  const [isOverlayShown, setIsOverlayShown] = useState(false);
   const { addToFav, removeFromFav, beer, isFav } = props
-  const { id, name, tagline, image_url } = beer
+  const { name, tagline, image_url } = beer
+
+  const handleOpenDetails = () => {setIsOverlayShown(true)}
+  const handleCloseDetails = () => {setIsOverlayShown(false)}
 
   return (
     <article className={styles.Card} style={isFav ? { backgroundColor: "green" } : {}}>
@@ -17,7 +21,18 @@ const Card = (props) => {
       <h1>{name}</h1>
       <p>{tagline}</p>
       <img src={image_url} alt={name} />
-      <Link to={`/beer/beer_${id}`}>More Info</Link>
+      <div>
+        <p onClick={handleOpenDetails}>More Info</p>
+      </div>
+      {isOverlayShown ? 
+      ReactDOM.createPortal(<DetailsOverlay 
+        beer={beer} 
+        handleCloseDetails={handleCloseDetails}
+        addToFav = {addToFav}
+        removeFromFav = {removeFromFav}
+        isFav = {isFav}
+         />,document.getElementById("root")) 
+      : null}
     </article>
   );
 };
