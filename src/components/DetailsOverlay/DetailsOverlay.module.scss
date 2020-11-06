@@ -3,7 +3,7 @@
     top: 0;
     height: 100vh;
     width: 100%;
-    background-color: #000000;
+    background-color: #000;
     color: white;
     padding: 20px;
     display: flex;
@@ -13,7 +13,7 @@
     }
 
     > .infomation {
-        li{
+        li {
             list-style-type: circle;
             list-style-position: inside;
         }
