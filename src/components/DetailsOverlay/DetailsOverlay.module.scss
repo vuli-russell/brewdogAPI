@@ -6,4 +6,16 @@
     background-color: #000000;
     color: white;
     padding: 20px;
+    display: flex;
+
+    > img {
+        background-color: white;
+    }
+
+    > .infomation {
+        li{
+            list-style-type: circle;
+            list-style-position: inside;
+        }
+    }
 }
