@@ -1,3 +1,3 @@
-import BeerDetails from "./BeerDetails";
+import BeerDetails from './BeerDetails';
 
 export default BeerDetails;
