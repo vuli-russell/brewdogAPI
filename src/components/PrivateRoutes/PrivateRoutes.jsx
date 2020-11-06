@@ -1,20 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 // import styles from "./PrivateRoutes.module.scss";
-import firebase from "../../firebase";
+import firebase from '../../firebase';
 
 const PrivateRoutes = (props) => {
-
   const [isSignedIn, setIsSignedIn] = useState(false);
 
   useEffect(() => {
     firebase.auth().onAuthStateChanged(user => {
-      if(user){
-        setIsSignedIn(true)
-      }else{
-        setIsSignedIn(false)
+      if (user) {
+        setIsSignedIn(true);
+      } else {
+        setIsSignedIn(false);
       }
-    })
-  },[])
+    });
+  }, []);
 
   return (
     <>

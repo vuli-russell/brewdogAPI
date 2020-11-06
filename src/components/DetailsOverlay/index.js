@@ -1,3 +1,3 @@
-import DetailsOverlay from "./DetailsOverlay";
+import DetailsOverlay from './DetailsOverlay';
 
 export default DetailsOverlay;

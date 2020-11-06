@@ -1,14 +1,14 @@
-import React from "react";
-import styles from "./DetailsOverlay.module.scss";
+import React from 'react';
+import styles from './DetailsOverlay.module.scss';
 
 const DetailsOverlay = (props) => {
   const { beer, handleCloseDetails, addToFav, removeFromFav, isFav } = props;
-  const { name, description, image_url, abv, ibu, ebc, first_brewed, food_pairing, ingredients, method} = beer;
+  const { name, description, image_url, abv, ibu, ebc, first_brewed, food_pairing, ingredients, method } = beer;
   return (
     <>
-      <section className = {styles.overlay}>
-        <img src={image_url} alt=""/>
-        <div className = {styles.infomation}>
+      <section className={styles.overlay}>
+        <img src={image_url} alt='' />
+        <div className={styles.infomation}>
           <h1>{name}</h1>
           <p>{description}</p>
           <p>ABV: {abv}%</p>
@@ -37,10 +37,9 @@ const DetailsOverlay = (props) => {
           </div>
 
           <button onClick={handleCloseDetails}>close</button>
-          {isFav ?
-            <button onClick={removeFromFav}>remove from fav</button> :
-            <button onClick={addToFav}>add to fav</button>
-          }  
+          {isFav
+            ? <button onClick={removeFromFav}>remove from fav</button>
+            : <button onClick={addToFav}>add to fav</button>}
         </div>
       </section>
     </>
