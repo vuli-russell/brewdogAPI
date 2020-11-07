@@ -19,8 +19,8 @@ const Card = (props) => {
       <h1>{name}</h1>
       <p>{tagline}</p>
       <img src={image_url} alt={name} />
-      <div>
-        <p onClick={handleOpenDetails}>More Info</p>
+      <div className={styles.moreInfo} onClick={handleOpenDetails}>
+        <p>More Info</p>
       </div>
       {isOverlayShown
         ? ReactDOM.createPortal(<DetailsOverlay
