@@ -20,7 +20,6 @@ const Header = () => {
         {user ? <p onClick={signOut}>Logout</p>
           : <>
             <p onClick={() => signIn('google')}>login with google</p>
-            <p onClick={() => signIn('github')}>login with github</p>
           </>}
       </div>
 
