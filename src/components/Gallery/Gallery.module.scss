@@ -1,9 +1,11 @@
+@import "../../assets/styles/variables";
+
 .gallery{
     overflow-y: scroll;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
-    margin: 10px;
+    margin: $base-margin;
     border: 2px solid black;
-    width: 100%;
+    width: 100%;    
   }

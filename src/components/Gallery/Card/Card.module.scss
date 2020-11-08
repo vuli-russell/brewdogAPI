@@ -1,3 +1,5 @@
+@import "../../../assets/styles/variables";
+
 .Card {
     height: 400px;
     width: 300px;
@@ -7,8 +9,46 @@
     align-items: center;
     margin: 10px;
     padding: 10px;
-    border: 2px solid black;
-    border-radius: 20px;
+    border-radius: 17px;
+    background: $card-color;
+    box-shadow: inset 7px -7px 14px #868688, 
+                inset -7px 7px 14px #ffffff;
+    color: $text-color;
+
+    .faIcon {
+        text-align: center;
+        align-self: flex-end;
+        font-size: 30px;
+        width: 10%;
+        transition: all 0.5s ease;
+        border-radius: 17px 17px 5px 5px;
+        
+        &:hover {
+            overflow-x: show;
+            white-space: nowrap;
+            width: 100%;
+            background-color: $secondary-color;
+            &::after {
+                font-size: $text-size * 1.5;
+            }
+        }
+
+        &.fav{
+            color: red;
+
+            &:hover::after {
+                content: " Remove"
+            }
+        }
+
+        &.notFav{
+            color: black;
+
+             &:hover::after {
+                content: " Save"
+            }
+        }
+    }
 
     h1 {
         flex: 0 0 auto;
@@ -24,6 +64,18 @@
         min-height: 0;
         flex-grow: 1;
         width: 100%;
+    }
+
+    .moreInfo {
+        text-align: center;
+        cursor: pointer;
+        padding: 5px 10px;
+        border: 3px solid #ffffff00;
+        transition: all 0.5s ease;
+
+        &:hover {
+            border-color: $secondary-color;
+        }
     }
     
 }

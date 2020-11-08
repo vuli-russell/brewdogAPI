@@ -1,10 +1,10 @@
+@import "../../assets/styles/variables";
+
 .searchBar{
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin: $base-margin;
     border: 2px solid black;
-    // overflow-y: auto;
-    // overflow-x: hidden;
 
     .input {
         margin: 5px 10px;
