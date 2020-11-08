@@ -8,7 +8,13 @@ const Header = () => {
 
   return (
     <header className={styles.header}>
-      <Link to='/'><h1>BrewDog</h1></Link>
+      <Link to='/'>
+        <h1>
+          <span role="img" aria-label="beer emoji">🍺</span>
+          BrewDog Catalogue
+          <span role="img" aria-label="beer emoji">🍺</span>
+        </h1>
+      </Link>
       <div className={styles.links}>
         <Link to='profile'><p>Profile</p></Link>
         {user ? <p onClick={signOut}>Logout</p>

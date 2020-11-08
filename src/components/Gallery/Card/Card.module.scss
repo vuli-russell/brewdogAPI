@@ -13,7 +13,42 @@
     background: $card-color;
     box-shadow: inset 7px -7px 14px #868688, 
                 inset -7px 7px 14px #ffffff;
-    color: black;
+    color: $text-color;
+
+    .faIcon {
+        text-align: center;
+        align-self: flex-end;
+        font-size: 30px;
+        width: 10%;
+        transition: all 0.5s ease;
+        border-radius: 17px 17px 5px 5px;
+        
+        &:hover {
+            overflow-x: show;
+            white-space: nowrap;
+            width: 100%;
+            background-color: $secondary-color;
+            &::after {
+                font-size: $text-size * 1.5;
+            }
+        }
+
+        &.fav{
+            color: red;
+
+            &:hover::after {
+                content: " Remove"
+            }
+        }
+
+        &.notFav{
+            color: black;
+
+             &:hover::after {
+                content: " Save"
+            }
+        }
+    }
 
     h1 {
         flex: 0 0 auto;
@@ -39,7 +74,7 @@
         transition: all 0.5s ease;
 
         &:hover {
-            border-color: $tertiary-color;
+            border-color: $secondary-color;
         }
     }
     
