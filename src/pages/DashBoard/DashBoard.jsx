@@ -12,15 +12,24 @@ const DashBoard = () => {
     // make request Str from info
     let requestStr = Object.keys(searchInfo).length > 0 ? '' : '';
     requestStr = searchArr.length ? searchArr.map(entry => entry[1].length ? `${entry[0]}=${entry[1]}&` : null).join('&') : '';
-
     requestStr = requestStr.replace(/&$/, '');
     requestStr = requestStr ? `?${requestStr}` : '';
 
     const url = `https://api.punkapi.com/v2/beers${requestStr}`;
 
     fetch(url)
-      .then(response => response.json())
-      .then(data => setData(data));
+      .then(response => {
+        if(response.ok){
+          return response.json();
+        }else{
+          throw new Error(response.json())
+        }
+      })
+      .then(data => {console.log(data);setData(data)})
+      .catch(e => {
+        alert("Error Fetching Beers Data, try a different search or try again later")
+        console.log(e);
+      })
   };
 
   useEffect(() => {

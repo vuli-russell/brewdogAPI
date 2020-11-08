@@ -47,7 +47,7 @@ const SearchBar = (props) => {
         <label className={styles.input} key={item[0]}>
           {item[2]}
           <br />
-          <input type={item[1]} id={item[0]} onChange={onChangeHandler} />
+          <input type={item[1]} id={item[0]} onChange={onChangeHandler}/>
         </label>
       )}
     </section>
