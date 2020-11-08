@@ -45,8 +45,7 @@ const Card = (props) => {
         ? ReactDOM.createPortal(<DetailsOverlay
             beer={beer}
             handleCloseDetails={handleCloseDetails}
-            addToFav={addToFav}
-            removeFromFav={removeFromFav}
+            handleFavClick = {handleFavClick}
             isFav={isFav}
             />, document.getElementById('root'))
         : null}
