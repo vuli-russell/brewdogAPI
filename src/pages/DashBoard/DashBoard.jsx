@@ -1,12 +1,9 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './DashBoard.module.scss';
 import SearchBar from '../../components/SearchBar';
 import Gallery from '../../components/Gallery';
-import { UserContext } from '../../context/userContext';
 
 const DashBoard = () => {
-  const { user } = useContext(UserContext);
-
   const [searchInfo, setSearchInfo] = useState({});
   const [data, setData] = useState(null);
 
@@ -33,7 +30,7 @@ const DashBoard = () => {
   return (
     <div className={styles.DashBoard}>
       <SearchBar searchInfo={searchInfo} setSearchInfo={setSearchInfo} />
-      <Gallery data={data} user={user} />
+      <Gallery data={data} />
     </div>
 
   );

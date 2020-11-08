@@ -20,8 +20,8 @@ const App = () => {
         <Header />
         <Router className={styles.router} primary={false}>
           <DashBoard path='/' />
-          <PrivateRoutes path='/'>
-            <Profile path='profile' />
+          <PrivateRoutes path='/profile'>
+            <Profile path='/' />
           </PrivateRoutes>
         </Router>
       </UserProvider>

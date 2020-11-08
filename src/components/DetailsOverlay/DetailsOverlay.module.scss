@@ -1,21 +1,82 @@
+@import "../../assets/styles/variables";
+
 .overlay {
     position: absolute;
-    top: 0;
+    top: 100%;
     height: 100vh;
     width: 100%;
-    background-color: #000;
-    color: white;
-    padding: 20px;
+    background-color: $secondary-color;
+    color: $text-color;
+    padding: 20px 20px 0px 20px;
     display: flex;
+    overflow: hidden;
+    transition: top $transition-time ease;
 
     > img {
-        background-color: white;
+        margin: $base-margin;
     }
 
-    > .infomation {
-        li {
-            list-style-type: circle;
-            list-style-position: inside;
+    .faIcon {
+        transform-origin: center;
+        margin: 0px $base-margin;
+        transition: all $transition-time ease;
+        display: inline-block;
+        font-size: 20px;
+
+        &.fav{
+            color: red;
         }
+
+        &.notFav{
+            color: black
+        }
+    }
+
+    .closeIcon {
+        position: absolute;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+    }
+
+    .infomation {
+        padding: $base-padding;
+        height: 100%;
+        background-color: $card-color;
+        margin: $base-margin;
+        width: 100%;
+        overflow-y: auto;
+
+        h1, h2, h3 {
+            margin: $base-margin 0px;
+            display: inline-block;
+        }
+
+        h1 {
+            text-decoration: underline;
+        }
+        
+        ul {
+            margin: $base-margin;
+
+            li {
+                list-style-type: circle;
+                list-style-position: inside;
+            }
+        }
+
+
+        .ingredients {
+            height: 0px;
+            overflow: hidden;
+            transition: all $transition-time ease;
+        }
+
+        .ingredientsHeader {
+            h2 {
+                display: inline;
+            }
+        }
+
     }
 }
