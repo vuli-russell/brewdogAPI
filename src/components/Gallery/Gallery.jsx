@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import styles from './Gallery.module.scss';
 import Card from './Card';
-
-import { setFav, removeFav, subscribeToFavourites } from '../../services/userServices';
+import { UserContext } from '../../context/userContext';
+import { subscribeToFavourites } from '../../services/userServices';
 
 const Gallery = (props) => {
-  const { data, user } = props;
+  const { data } = props;
+  const { user } = useContext(UserContext);
 
   const [favBeers, setFavBeers] = useState(null);
 
@@ -23,8 +24,6 @@ const Gallery = (props) => {
       {data ? data.map(beer => <Card
         isFav={favBeers ? favBeers.some(fav => fav.id === beer.id) : false}
         key={beer.id}
-        addToFav={() => setFav(user, beer)}
-        removeFromFav={() => removeFav(user, beer)}
         beer={beer}
                                />) : <p>Loading Beers</p>}
     </section>

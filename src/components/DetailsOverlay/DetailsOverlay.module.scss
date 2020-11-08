@@ -1,15 +1,15 @@
+@import "../../assets/styles/variables";
 .overlay {
     position: absolute;
     top: 0;
     height: 100vh;
     width: 100%;
-    background-color: #000;
-    color: white;
+    background-color: $secondary-color;
+    color: $text-color;
     padding: 20px;
     display: flex;
 
     > img {
-        background-color: white;
     }
 
     > .infomation {
