@@ -20,9 +20,14 @@ const Header = () => {
         </h1>
       </Link>
       <div className={styles.links}>
-        <Link to='profile'><p>Profile</p></Link>
-        {user ? <FontAwesomeIcon className={styles.faIcon} onClick={signOut} icon={faSignOutAlt}/>
-          : <>
+        {user ? 
+          <>
+            <Link to='profile'>
+              <img src={user.photoURL} alt="profile"/>
+            </Link>
+            <FontAwesomeIcon className={styles.faIcon} onClick={signOut} icon={faSignOutAlt}/>
+          </> : 
+          <>
             <FontAwesomeIcon className={styles.faIcon} onClick={() => signIn('google')} icon={faGoogle}/>
           </>}
       </div>
