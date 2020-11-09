@@ -7,5 +7,12 @@
     justify-content: space-evenly;
     margin: $base-margin;
     border: 2px solid black;
-    width: 100%;    
+    width: 100%;
+    
+    .loadMore {
+      width: 100%;
+      font-size: $text-size;
+      margin: $base-margin;
+      padding: $base-padding;
+    }    
   }
