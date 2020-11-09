@@ -1,0 +1,33 @@
+@import "../../assets/styles/variables";
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .profileInfo {
+        padding: $base-padding;
+        margin: 0px $base-margin;
+        display: flex;
+        
+        img {
+            object-fit: contain;
+        }
+
+        .infoText {
+            margin: 0px $base-margin;
+        }
+    }
+
+    .favouriteBeers {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding: $base-padding;
+        border: 2px solid black;
+        // height: 100%;
+        overflow: auto;
+        padding: $base-padding;
+        margin: $base-margin;
+    }
+}
