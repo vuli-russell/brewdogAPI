@@ -12,9 +12,14 @@
 
     .links{
         display: flex;
-
-        p{ 
+        
+        p {
             margin: $base-margin;
+        }
+
+        .faIcon{ 
+            font-size: $text-size * 2;
+            cursor: pointer;
         }
     }
 }
