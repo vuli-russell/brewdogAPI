@@ -16,6 +16,10 @@ html {
     display: flex;
     flex-direction: column;
     background-color: $background-color;
+
+    > div > div{
+        height: 100%;
+    }
 }
 
 .router {

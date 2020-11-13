@@ -5,7 +5,7 @@ import { UserContext } from '../../context/userContext';
 import { subscribeToFavourites } from '../../services/userServices';
 
 const Gallery = (props) => {
-  const { data } = props;
+  const { data, loadMoreBeers } = props;
   const { user } = useContext(UserContext);
 
   const [favBeers, setFavBeers] = useState(null);
@@ -21,11 +21,12 @@ const Gallery = (props) => {
 
   return (
     <section className={styles.gallery}>
-      {data ? data.map(beer => <Card
+      {data ? data.length ? data.map(beer => <Card
         isFav={favBeers ? favBeers.some(fav => fav.id === beer.id) : false}
         key={beer.id}
         beer={beer}
-                               />) : <p>Loading Beers</p>}
+      />) : <p>No Beers Found Matching Search Criteria</p> : <p>Loading Beers</p>}
+      <button className={styles.loadMore} onClick={loadMoreBeers}>Load More</button>
     </section>
   );
 };

@@ -4,17 +4,32 @@
     margin: $base-margin;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     
     > a {
         text-decoration: none;
         color: inherit;
     }
 
+
+
     .links{
         display: flex;
-
-        p{ 
+        align-items: center;
+        
+        > * {
             margin: $base-margin;
+        }
+
+        img {
+            object-fit: contain;
+            height: 3 * $text-size;
+            border-radius: 50%;
+        }
+    
+        .faIcon{ 
+            font-size: $text-size * 2;
+            cursor: pointer;
         }
     }
 }

@@ -2,6 +2,10 @@ import React, { useContext } from 'react';
 import styles from './Header.module.scss';
 import { Link } from '@reach/router';
 import { UserContext } from '../../context/userContext';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
+import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons"
+
 
 const Header = () => {
   const { signIn, signOut, user } = useContext(UserContext);
@@ -16,10 +20,15 @@ const Header = () => {
         </h1>
       </Link>
       <div className={styles.links}>
-        <Link to='profile'><p>Profile</p></Link>
-        {user ? <p onClick={signOut}>Logout</p>
-          : <>
-            <p onClick={() => signIn('google')}>login with google</p>
+        {user ? 
+          <>
+            <Link to='profile'>
+              <img src={user.photoURL} alt="profile"/>
+            </Link>
+            <FontAwesomeIcon className={styles.faIcon} onClick={signOut} icon={faSignOutAlt}/>
+          </> : 
+          <>
+            <FontAwesomeIcon className={styles.faIcon} onClick={() => signIn('google')} icon={faGoogle}/>
           </>}
       </div>
 
