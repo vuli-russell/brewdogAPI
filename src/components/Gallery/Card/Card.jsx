@@ -31,7 +31,7 @@ const Card = (props) => {
 
   return (
     // <article className={styles.Card} style={isFav ? { backgroundColor: 'green' } : {}}>
-    <article className={styles.Card} >
+    <article className={styles.Card} data-cy="beer-card" >
       <div className={`${styles.faIcon} ${favIconClass}`} onClick={handleFavClick}>
         <FontAwesomeIcon icon = {faHeart}/>
       </div>
